@@ -19,13 +19,159 @@
 <!-- Bootstrap Jumbotron-fluid feature -->
 
 <body class="w-100">
-    <header class="jumbotron-fluid d-flex flex-column align-items-center justify-content-center h-25 custom-jumbotron bg-success text-dark">
+
+    <header
+        class="jumbotron-fluid d-flex flex-column align-items-center justify-content-center h-25 custom-jumbotron bg-success text-dark">
         <h1 class="display-3">Weather Dashboard</h1>
         <p id="currentTime" class="lead"></p>
     </header>
 
-    
+    <main class="row col-12 container-fluid d-flex custom-container">
+        
+        <section class="row col-lg-2 col-md-12 d-flex flex-column align-items-center pt-1" id="citySearch">
+            <div class="row form-group m-2" id="input">
+                <input class="form-text form-control form-control-sm col-12" placeholder="Search a city" name="city"
+                    id="searchBox" type="text"></input>
+                <button type="button" class="btn btn-dark btn-md justify-content-space-around col-6"
+                    id="submit">Submit</button>
+                <button type="button" class="btn btn-danger btn-md justify-content-space-around col-6"
+                    id="clear">Clear</button>
+            </div>
+        </section>
 
+        
+        <section class="row col-lg-10 col-md-12 d-flex align-items-center justify-content-center" id="weatherResults">
+
+
+            <div class="row col-lg-12 col-md-12 d-flex align-items-center justify-content-center pt-3" id="dayCard0">
+                <h3 class="card-header" id="today"> Today </h3>
+                <p class="lead"><span id="cityHeader"></span></p>
+                <div class="card-body custom-card-body col-lg-12 col-md-12 col-12 d-flex flex-column align-items-center">
+                    <div class="cardLine">
+                        <p class="card-text"><span id="todayWeather"></span></p>
+                    </div>
+                    <img class="weatherIcon" id="icon0" src="">
+                    <div class="cardLine">
+                        <p class="card-text">Temperature: <span id="todayTemperature"></span> °F </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Wind Speed: <span id="todayWind"></span> mph </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Humidity: <span id="todayHumidity"></span> % </p>
+                    </div>
+                </div>
+            </div>
+     
+
+            <div class="row justify-content-center pt-1" id="dayCard1">
+                <h3 class="card-header" id="firstDay"> 1st Day </h3>
+                <div class="card-body custom-card-body col-lg-10 col-md-12 col-12 d-flex flex-column align-items-center">
+                    <div class="cardLine">
+                        <p class="card-text"><span id="firstDayWeather"></span></p>
+                    </div>
+                    <img class="weatherIcon" id="icon1" src="">
+                    <div class="cardLine">
+                        <p class="card-text">Temperature: <span id="firstDayTemperature"></span> °F </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Wind Speed: <span id="firstDayWind"></span> mph </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Humidity: <span id="firstDayHumidity"></span> % </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center pt-1" id="dayCard2">
+                <h3 class="card-header" id="secondDay"> 2nd Day </h3>
+                <div class="card-body custom-card-body col-lg-10 col-md-12 col-12 d-flex flex-column align-items-center">
+                    <div class="cardLine">
+                        <p class="card-text"><span id="secondDayWeather"></span></p>
+                    </div>
+                    <img class="weatherIcon" id="icon2" src="">
+                    <div class="cardLine">
+                        <p class="card-text">Temperature: <span id="secondDayTemperature"></span> °F </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Wind Speed: <span id="secondDayWind"></span> mph </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Humidity: <span id="secondDayHumidity"></span> % </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row justify-content-center pt-1" id="dayCard3">
+                <h3 class="card-header" id="thirdDay"> 3rd Day </h3>
+                <div class="card-body custom-card-body col-lg-10 col-md-12 col-12 d-flex flex-column align-items-center">
+                    <div class="cardLine">
+                        <p class="card-text"><span id="thirdDayWeather"></span></p>
+                    </div>
+                    <img class="weatherIcon" id="icon3" src="">
+                    <div class="cardLine">
+                        <p class="card-text">Temperature: <span id="thirdDayTemperature"></span> °F </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Wind Speed: <span id="thirdDayWind"></span> mph </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Humidity: <span id="thirdDayHumidity"></span> % </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center pt-1" id="dayCard4">
+                <h3 class="card-header" id="fourthDay"> 4th Day </h3>
+                <div class="card-body custom-card-body col-lg-10 col-md-12 col-12 d-flex flex-column align-items-center">
+                    <div class="cardLine">
+                        <p class="card-text"><span id="fourthDayWeather"></span></p>
+                    </div>
+                    <img class="weatherIcon" id="icon4" src="">
+                    <div class="cardLine">
+                        <p class="card-text">Temperature: <span id="fourthDayTemperature"></span> °F </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Wind Speed: <span id="fourthDayWind"></span> mph </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Humidity: <span id="fourthDayHumidity"></span> % </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row justify-content-center pt-1" id="dayCard5">
+                <h3 class="card-header" id="fifthDay"> 5th Day </h3>
+                <div class="card-body custom-card-body col-lg-10 col-md-12 col-12 d-flex flex-column align-items-center">
+                    <div class="cardLine">
+                        <p class="card-text"><span id="fifthDayWeather"></span></p>
+                    </div>
+                    <img class="weatherIcon" id="icon5" src="">
+                    <div class="cardLine">
+                        <p class="card-text">Temperature: <span id="fifthDayTemperature"></span> °F </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Wind Speed: <span id="fifthDayWind"></span> mph </p>
+                    </div>
+                    <div class="cardLine">
+                        <p class="card-text">Humidity: <span id="fifthDayHumidity"></span> % </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+
+
+
+    </main>
 
 </body>
 
