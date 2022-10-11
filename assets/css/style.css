@@ -1,0 +1,12 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.jumbotron-fluid {
+    text-align: center;
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 5px dotted rgba(0, 0, 0, 0.514) ;
+}
