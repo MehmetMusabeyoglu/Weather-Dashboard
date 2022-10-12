@@ -218,9 +218,3 @@ $('#clear').on('click', function (event) {
     }
 });
 
-$("enteredCity").click(function (event) {
-    event.preventDefault();
-
-});
-
-
