@@ -1,6 +1,5 @@
 var locationSearch = $("#searchBox");
 
-
 var searchedCities = [];
 if (localStorage.getItem("searchedCitiesStringify") === null) {
     localStorage.setItem("searchedCitiesStringify", JSON.stringify(searchedCities));
@@ -34,7 +33,7 @@ $('#submit').on('click', function (event) {
     var locationEntry = locationSearch.val().toUpperCase().trim();
 
     searchedCities = JSON.parse(localStorage.getItem("searchedCitiesStringify"));
-    if (locationEntry === '') { 
+    if (locationEntry === '') {
         alert('Invalid city input!');
     }
     else {
@@ -43,6 +42,10 @@ $('#submit').on('click', function (event) {
             console.log(searchedCities);
             localStorage.setItem("searchedCitiesStringify", JSON.stringify(searchedCities));
             console.log(searchedCities);
+
+            $("#enteredCity").append("<button>" + locationEntry + "</button>");
+            $("#enteredCity").children().attr("class", "row btn btn-primary m-1 mb-2 w-100");
+
         }
     }
 
@@ -57,5 +60,9 @@ $('#clear').on('click', function (event) {
     searchedCities = [];
     if (localStorage.getItem("searchedCitiesStringify") === null) {
         localStorage.setItem("searchedCitiesStringify", JSON.stringify(searchedCities));
+    
+        // $("#enteredCity").remove();
+        $("#searchBox").val('');
+        $("#enteredCity").empty();
     }
 });
