@@ -181,23 +181,7 @@ $('#submit').on('click', function (event) {
         }
     });
 
-    // console.log(geocodingObject.lon + " ");
-
-    // if (locationEntry === '') {
-    //     alert('Invalid city input!');
-    // }
-    // else {
-    //     if (!searchedCities.includes(locationEntry)) {
-    //         searchedCities.push(locationEntry);
-    //         // console.log(searchedCities);
-    //         localStorage.setItem("searchedCitiesStringify", JSON.stringify(searchedCities));
-    //         // console.log(searchedCities);
-
-    //         $("#enteredCity").append("<button>" + locationEntry + "</button>");
-    //         $("#enteredCity").children().attr("class", "row btn btn-primary m-1 mb-2 w-100");
-
-    //     }
-    // }
+  
 
     locationSearch.val("");
 
