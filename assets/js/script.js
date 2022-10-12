@@ -30,7 +30,8 @@ setInterval(currentTimeShown, 1000);
 var geocodingLat = [];
 var geocodingLon = [];
 
-var weatherUrl;
+var weatherTodayUrl;
+var weatherForecastUrl;
 var geocodingUrl;
 var geocodingObject ;
 
@@ -54,8 +55,52 @@ $('#submit').on('click', function (event) {
                 alert("Invalid city input!");    
             }
             else{
-                console.log(data[0].lon + "   " + data[0].country );
-                // weatherUrl = '' + data[0].lon + data[0].lat + "";
+                // console.log(data[0].lon + "   " + data[0].country );
+                weatherTodayUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=' + data[0].lat + '&lon=' + data[0].lon + "&units=imperial" + "&appid=3cbcebba60d585a203f6e51f482d9176";
+                weatherForecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + data[0].lat + '&lon=' + data[0].lon + "&units=imperial" + "&appid=3cbcebba60d585a203f6e51f482d9176";
+                // console.log(weatherUrl);
+
+                fetch(weatherTodayUrl).then(function (response) {
+                    if (response.ok) {
+                      response.json().then(function (data) {
+                        //console.log(data.main.temp);
+                        $('#dayCard0').children().eq(0).html( data.name + " (" + moment().format("YYYY-MM-DD") + ")");
+                        $('#dayCard0').children().eq(2).children().eq(1).attr('src','http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png' );
+                        $('#dayCard0').children().eq(2).children().eq(2).html('Temperature: ' +  data.main.temp + '°F');
+                        $('#dayCard0').children().eq(2).children().eq(3).html('Wind Speed: ' +  data.wind.speed + ' mph');
+                        $('#dayCard0').children().eq(2).children().eq(4).html('Humidity: ' +  data.main.humidity + '%');
+                      });
+                    } else {
+                        alert("404, not found!");   
+                    }
+                  });
+
+
+                fetch(weatherForecastUrl).then(function (response) {
+                    if (response.ok) {
+                      response.json().then(function (data) {
+                    //    console.log(data.list[6].wind);
+                        for(var i=0; i<5; i++){
+                            //console.log("temp at" + data.list[2+(i*8)].dt_txt + "is" + data.list[2+(i*8)].main.temp);
+                            // console.log($('#dayCard'+(i+1)).children().eq(0).html());
+                            $('#dayCard'+(i+1)).children().eq(0).html(data.list[2+(i*8)].dt_txt.split(" ")[0]);
+                            console.log(data.list[2+(i*8)].weather[0].icon);
+                            $('#dayCard'+(i+1)).children().eq(1).children().eq(1).attr('src','http://openweathermap.org/img/wn/' + data.list[3+(i*8)].weather[0].icon + '@2x.png' );
+                            $('#dayCard'+(i+1)).children().eq(1).children().eq(2).html('Temperature: ' +  data.list[3+(i*8)].main.temp + '°F');
+                            $('#dayCard'+(i+1)).children().eq(1).children().eq(3).html('Wind Speed: ' +  data.list[3+(i*8)].wind.speed + ' mph');
+                            $('#dayCard'+(i+1)).children().eq(1).children().eq(4).html('Humidity: ' +  data.list[3+(i*8)].main.humidity + '%');
+                        }
+                      });
+                    } else {
+                        alert("404, not found!");   
+                    }
+                  });
+
+
+
+
+
+
                 if (!searchedCities.includes(locationEntry)) {
                     searchedCities.push(locationEntry);
                     // console.log(searchedCities);
