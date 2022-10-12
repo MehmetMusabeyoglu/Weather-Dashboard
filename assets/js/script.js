@@ -53,7 +53,7 @@ $('#submit').on('click', function (event) {
 
     locationEntry = locationSearch.val().toUpperCase().trim();
 
-    geocodingUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + locationEntry + '&limit=1&appid=3cbcebba60d585a203f6e51f482d9176';
+    geocodingUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + locationEntry + '&limit=1&appid=3cbcebba60d585a203f6e51f482d9176';
 
     fetch(geocodingUrl).then(function (response) {
         if (response.ok) {
@@ -72,7 +72,7 @@ $('#submit').on('click', function (event) {
                             response.json().then(function (data) {
                                 //console.log(data.main.temp);
                                 $('#dayCard0').children().eq(0).html(data.name + " (" + moment().format("YYYY-MM-DD") + ")");
-                                $('#dayCard0').children().eq(2).children().eq(1).attr('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
+                                $('#dayCard0').children().eq(2).children().eq(1).attr('src', 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
                                 $('#dayCard0').children().eq(2).children().eq(2).html('Temperature: ' + data.main.temp + '°F');
                                 $('#dayCard0').children().eq(2).children().eq(3).html('Wind Speed: ' + data.wind.speed + ' mph');
                                 $('#dayCard0').children().eq(2).children().eq(4).html('Humidity: ' + data.main.humidity + '%');
@@ -91,7 +91,7 @@ $('#submit').on('click', function (event) {
                                     // console.log($('#dayCard'+(i+1)).children().eq(0).html());
                                     $('#dayCard' + (i + 1)).children().eq(0).html(data.list[2 + (i * 8)].dt_txt.split(" ")[0]);
                                     console.log(data.list[2 + (i * 8)].weather[0].icon);
-                                    $('#dayCard' + (i + 1)).children().eq(1).children().eq(1).attr('src', 'http://openweathermap.org/img/wn/' + data.list[3 + (i * 8)].weather[0].icon + '@2x.png');
+                                    $('#dayCard' + (i + 1)).children().eq(1).children().eq(1).attr('src', 'https://openweathermap.org/img/wn/' + data.list[3 + (i * 8)].weather[0].icon + '@2x.png');
                                     $('#dayCard' + (i + 1)).children().eq(1).children().eq(2).html('Temperature: ' + data.list[3 + (i * 8)].main.temp + '°F');
                                     $('#dayCard' + (i + 1)).children().eq(1).children().eq(3).html('Wind Speed: ' + data.list[3 + (i * 8)].wind.speed + ' mph');
                                     $('#dayCard' + (i + 1)).children().eq(1).children().eq(4).html('Humidity: ' + data.list[3 + (i * 8)].main.humidity + '%');
@@ -134,7 +134,7 @@ $('#submit').on('click', function (event) {
                                                 response.json().then(function (data) {
                                                     //console.log(data.main.temp);
                                                     $('#dayCard0').children().eq(0).html(data.name + " (" + moment().format("YYYY-MM-DD") + ")");
-                                                    $('#dayCard0').children().eq(2).children().eq(1).attr('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
+                                                    $('#dayCard0').children().eq(2).children().eq(1).attr('src', 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
                                                     $('#dayCard0').children().eq(2).children().eq(2).html('Temperature: ' + data.main.temp + '°F');
                                                     $('#dayCard0').children().eq(2).children().eq(3).html('Wind Speed: ' + data.wind.speed + ' mph');
                                                     $('#dayCard0').children().eq(2).children().eq(4).html('Humidity: ' + data.main.humidity + '%');
@@ -153,7 +153,7 @@ $('#submit').on('click', function (event) {
                                                         // console.log($('#dayCard'+(i+1)).children().eq(0).html());
                                                         $('#dayCard' + (i + 1)).children().eq(0).html(data.list[2 + (i * 8)].dt_txt.split(" ")[0]);
                                                         console.log(data.list[2 + (i * 8)].weather[0].icon);
-                                                        $('#dayCard' + (i + 1)).children().eq(1).children().eq(1).attr('src', 'http://openweathermap.org/img/wn/' + data.list[3 + (i * 8)].weather[0].icon + '@2x.png');
+                                                        $('#dayCard' + (i + 1)).children().eq(1).children().eq(1).attr('src', 'https://openweathermap.org/img/wn/' + data.list[3 + (i * 8)].weather[0].icon + '@2x.png');
                                                         $('#dayCard' + (i + 1)).children().eq(1).children().eq(2).html('Temperature: ' + data.list[3 + (i * 8)].main.temp + '°F');
                                                         $('#dayCard' + (i + 1)).children().eq(1).children().eq(3).html('Wind Speed: ' + data.list[3 + (i * 8)].wind.speed + ' mph');
                                                         $('#dayCard' + (i + 1)).children().eq(1).children().eq(4).html('Humidity: ' + data.list[3 + (i * 8)].main.humidity + '%');
